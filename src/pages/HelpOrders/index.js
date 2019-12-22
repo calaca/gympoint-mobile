@@ -7,21 +7,21 @@ import PageTitle from '~/components/PageTitle';
 
 import { Container } from './styles';
 
-export default function Checkins() {
+export default function HelpOrders() {
   return (
     <Background>
       <PageTitle />
       <Container>
-        <Text>Check-ins</Text>
+        <Text>Pedir ajuda</Text>
       </Container>
     </Background>
   );
 }
 
-Checkins.navigationOptions = {
-  tabBarLabel: 'Check-ins',
+HelpOrders.navigationOptions = {
+  tabBarLabel: 'Pedir ajuda',
   // eslint-disable-next-line react/prop-types
   tabBarIcon: ({ tintColor }) => (
-    <Icon name="edit-location" size={20} color={tintColor} />
+    <Icon name="live-help" size={20} color={tintColor} />
   ),
 };
