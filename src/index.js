@@ -7,16 +7,16 @@ import { ThemeProvider } from 'styled-components';
 import './config/ReactotronConfig';
 
 import { store, persistor } from './store';
-import Routes from './routes';
+import App from './App';
 import theme from './styles/theme';
 
-export default function App() {
+export default function Index() {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
         <ThemeProvider theme={theme}>
           <StatusBar barStyle="dark-content" backgroundColor="#FFF" />
-          <Routes />
+          <App />
         </ThemeProvider>
       </PersistGate>
     </Provider>
