@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Alert } from 'react-native';
 import { useSelector } from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -25,7 +26,19 @@ export default function Checkins() {
     loadCheckins();
   }, [studentId]);
 
-  function handleNew() {}
+  async function handleNew() {
+    try {
+      const response = await api.post(`/students/${studentId}/checkins`);
+
+      Alert.alert('Sucesso', 'Check-in feito com sucesso!');
+
+      setCheckins([...checkins, response.data]);
+    } catch (err) {
+      err.response.data.errors.map(error =>
+        Alert.alert('Falha no check-in', error.msg)
+      );
+    }
+  }
 
   return (
     <Background>
