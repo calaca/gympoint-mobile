@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { withNavigation } from 'react-navigation';
 import { withTheme } from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { formatRelative, parseISO } from 'date-fns';
@@ -7,13 +8,17 @@ import PropTypes from 'prop-types';
 
 import { Container, Header, Left, Status, Time, Preview } from './styles';
 
-function HelpOrder({ data, theme }) {
+function HelpOrder({ data, theme, navigation }) {
   const formattedTime = useMemo(() => {
     return formatRelative(parseISO(data.createdAt), new Date(), { locale: pt });
   }, [data.createdAt]);
 
   return (
-    <Container onPress={() => {}}>
+    <Container
+      onPress={() => {
+        navigation.navigate('Details', { helpOrder: data });
+      }}
+    >
       <Header>
         <Left>
           <Icon
@@ -42,4 +47,4 @@ HelpOrder.propTypes = {
   theme: PropTypes.instanceOf(Object).isRequired,
 };
 
-export default withTheme(HelpOrder);
+export default withNavigation(withTheme(HelpOrder));
