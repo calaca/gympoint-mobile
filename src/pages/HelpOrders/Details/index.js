@@ -1,9 +1,11 @@
 import React, { useMemo } from 'react';
+import { TouchableOpacity } from 'react-native';
 import { formatRelative, parseISO } from 'date-fns';
 import pt from 'date-fns/locale/pt';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Background from '~/components/Background';
-import PageTitle from '~/components/PageTitle';
+import LogoTitle from '~/components/LogoTitle';
 
 import { Container, Box, Header, Title, Time, Content, Answer } from './styles';
 
@@ -18,7 +20,6 @@ export default function Details({ navigation }) {
 
   return (
     <Background>
-      <PageTitle back />
       <Container>
         <Box>
           <Header>
@@ -37,3 +38,16 @@ export default function Details({ navigation }) {
     </Background>
   );
 }
+
+Details.navigationOptions = ({ navigation }) => ({
+  headerTitle: props => <LogoTitle {...props} />,
+  headerLeft: () => (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.goBack();
+      }}
+    >
+      <Icon name="chevron-left" size={24} color="#000" />
+    </TouchableOpacity>
+  ),
+});

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
 import { useSelector } from 'react-redux';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import api from '~/services/api';
 
 import Background from '~/components/Background';
-import PageTitle from '~/components/PageTitle';
+import LogoTitle from '~/components/LogoTitle';
 import Button from '~/components/Button';
 import Checkin from '~/components/Checkin';
 
@@ -42,7 +41,6 @@ export default function Checkins() {
 
   return (
     <Background>
-      <PageTitle />
       <Container>
         <Button onPress={handleNew}>Novo check-in</Button>
         <List
@@ -56,9 +54,5 @@ export default function Checkins() {
 }
 
 Checkins.navigationOptions = {
-  tabBarLabel: 'Check-ins',
-  // eslint-disable-next-line react/prop-types
-  tabBarIcon: ({ tintColor }) => (
-    <Icon name="edit-location" size={20} color={tintColor} />
-  ),
+  headerTitle: props => <LogoTitle {...props} />,
 };

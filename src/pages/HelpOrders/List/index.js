@@ -6,7 +6,7 @@ import api from '~/services/api';
 import Background from '~/components/Background';
 import Button from '~/components/Button';
 import HelpOrder from '~/components/HelpOrder';
-import PageTitle from '~/components/PageTitle';
+import LogoTitle from '~/components/LogoTitle';
 
 import { Container, List } from './styles';
 
@@ -26,7 +26,6 @@ export default function HelpOrders({ navigation }) {
 
   return (
     <Background>
-      <PageTitle />
       <Container>
         <Button
           onPress={() => {
@@ -45,3 +44,7 @@ export default function HelpOrders({ navigation }) {
     </Background>
   );
 }
+
+HelpOrders.navigationOptions = () => ({
+  headerTitle: props => <LogoTitle {...props} />,
+});
