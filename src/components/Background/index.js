@@ -9,7 +9,8 @@ export default function Background({ loggedout, children }) {
 
 Background.propTypes = {
   loggedout: PropTypes.bool,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.array])
+    .isRequired,
 };
 
 Background.defaultProps = {

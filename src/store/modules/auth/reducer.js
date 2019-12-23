@@ -2,7 +2,7 @@ import produce from 'immer';
 import constants from './constants';
 
 const INITIAL_STATE = {
-  id: null,
+  student: null,
   signed: false,
   loading: false,
 };
@@ -15,7 +15,7 @@ export default function auth(state = INITIAL_STATE, action) {
       });
     case constants.authSignInSuccess:
       return produce(state, draft => {
-        draft.id = action.payload.id;
+        draft.student = action.payload.student;
         draft.signed = true;
         draft.loading = false;
       });

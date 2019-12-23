@@ -9,11 +9,11 @@ export function signInRequest(id) {
   };
 }
 
-export function signInSuccess(id) {
+export function signInSuccess(student) {
   return {
     type: constants.authSignInSuccess,
     payload: {
-      id,
+      student,
     },
   };
 }
