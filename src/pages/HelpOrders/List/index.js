@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { withNavigationFocus } from 'react-navigation';
 
 import api from '~/services/api';
 
@@ -10,7 +11,7 @@ import LogoTitle from '~/components/LogoTitle';
 
 import { Container, List } from './styles';
 
-export default function HelpOrders({ navigation }) {
+function HelpOrdersList({ navigation, isFocused }) {
   const studentId = useSelector(state => state.auth.student.id);
   const [helpOrders, setHelpOrders] = useState([]);
 
@@ -21,8 +22,10 @@ export default function HelpOrders({ navigation }) {
       setHelpOrders(response.data);
     }
 
-    loadHelpOrders();
-  }, [studentId]);
+    if (isFocused) {
+      loadHelpOrders();
+    }
+  }, [isFocused, studentId]);
 
   return (
     <Background>
@@ -45,6 +48,8 @@ export default function HelpOrders({ navigation }) {
   );
 }
 
-HelpOrders.navigationOptions = () => ({
+HelpOrdersList.navigationOptions = () => ({
   headerTitle: props => <LogoTitle {...props} />,
 });
+
+export default withNavigationFocus(HelpOrdersList);
