@@ -20,8 +20,6 @@ You'll need [Node](https://nodejs.org), NPM (comes with Node) or [Yarn](https://
 
 **PS:** you'll also need to keep the API and emails queue running. Same for the development database. You can learn more [here](https://github.com/calaca/gympoint-api/blob/master/README.md).
 
-**PS 2:** this app has been tested on an iPhone 11 iOS 13.3 emulator.
-
 ### Installing
 
 Simply run `npm run i` or `yarn` to install all dependencies.
@@ -29,6 +27,12 @@ Simply run `npm run i` or `yarn` to install all dependencies.
 ### Running
 
 To run this project in development mode just enter the command `react-native run-ios` or `react-native run-android`.
+
+If there's an error or warning when you first run the app, try reloading it (`Cmd + R`).
+
+If any other problem appears while coding, run `yarn start --reset-cache` or `npm start --reset-cache`.
+
+**Important:** this app has only been tested on an iPhone 11 iOS 13.3 emulator.
 
 ## Debugging
 
