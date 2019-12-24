@@ -33,7 +33,7 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-props-no-spreading": "off",
-    "react/prop-types": ["error", { "ignore": ["navigation", "isFocused", "tintColor"] }]
+    "react/prop-types": ["error", { "ignore": ["navigation", "isFocused", "tintColor", "theme"] }]
   },
   settings: {
     "import/resolver": {

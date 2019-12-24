@@ -3,7 +3,6 @@ import { TouchableOpacity, Alert } from 'react-native';
 import { useSelector } from 'react-redux';
 import { withTheme } from 'styled-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import PropTypes from 'prop-types';
 
 import api from '~/services/api';
 
@@ -48,10 +47,6 @@ function New({ theme, navigation }) {
     </Background>
   );
 }
-
-New.propTypes = {
-  theme: PropTypes.instanceOf(Object).isRequired,
-};
 
 New.navigationOptions = ({ navigation }) => ({
   headerTitle: props => <LogoTitle {...props} />,
